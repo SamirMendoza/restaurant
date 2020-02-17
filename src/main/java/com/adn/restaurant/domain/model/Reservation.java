@@ -2,76 +2,66 @@ package com.adn.restaurant.domain.model;
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;
-import java.util.Date;
-
-import com.adn.restaurant.domain.utils.AdditionalMethods;
 
 public class Reservation {
 	
 	private Long code;
 	private Long idTable;
-	private Date dateRequest;
-	private Date dateReservation;
 	private double price;
 	private String name;
 	
-	public Reservation(Long idTable, Date dateRequest, Date dateReservation, double price, String name) {
-
-		if (!validatePrimeIdTable()) {
+	public Reservation(Long idTable, double price, String name) {	
+		this.idTable = idTable;
+		this.price = price;
+		this.name = name;
+		}
+	
+	public void generateReservation(LocalDate dateRequest, LocalDate dateReservation) {
+		if (!validatePrimeIdTable(dateRequest, dateReservation)) {
 			//lanzar excepcion
 		}
 		
-		if (!validateEvenIdTable()) {
+		if (!validateEvenIdTable(dateReservation)) {
 			giveDiscount();
 		}
 		
-		if (!validateUnevenIdTable()) {
+		if (!validateUnevenIdTable(dateReservation)) {
 			//lanzar excepcion
 		}
-		
-		this.idTable = idTable;
-		this.dateRequest = dateRequest;
-		this.dateReservation = dateReservation;
-		this.price = price;
-		this.name = name;
 	}
 	
-	public boolean validatePrimeIdTable() {
-		return (validatePrimeNumber() && validateDaysBetweenDates());
+	public boolean validatePrimeIdTable(LocalDate dateRequest, LocalDate dateReservation) {
+		return (validatePrimeNumber() && !validateDaysBetweenDates(dateRequest, dateReservation));
 	}
 	
-	public boolean validateEvenIdTable() {
-		return (isEven() && validateNoWeekend());
+	public boolean validateEvenIdTable(LocalDate dateReservation) {
+		return (isEven() && validateNoWeekend(dateReservation));
 	}
 	
-	public boolean validateUnevenIdTable() {
-		return (!isEven() && !validateNoWeekend());
+	public boolean validateUnevenIdTable(LocalDate dateReservation) {
+		return (!isEven() && !validateNoWeekend(dateReservation));
 	}
 	
-	public boolean validateNoWeekend() {
-		LocalDate dateReservationLocalDate = AdditionalMethods.toLocalDate(dateReservation);
-		return (dateReservationLocalDate.getDayOfWeek() != DayOfWeek.SATURDAY && dateReservationLocalDate.getDayOfWeek() != DayOfWeek.SUNDAY);
+	public boolean validateNoWeekend(LocalDate dateReservation) {
+		return (dateReservation.getDayOfWeek() != DayOfWeek.SATURDAY && dateReservation.getDayOfWeek() != DayOfWeek.SUNDAY);
 	}
 	
-	public boolean validateDaysBetweenDates() {
-		
-		LocalDate dateRequestLocalDate = AdditionalMethods.toLocalDate(dateRequest);
-		LocalDate dateReservationLocalDate = AdditionalMethods.toLocalDate(dateReservation);
-		
-		if (dateRequestLocalDate.isEqual(dateReservationLocalDate))
+	public boolean validateDaysBetweenDates(LocalDate dateRequest, LocalDate dateReservation) {
+		if (dateRequest.isEqual(dateReservation))
 			return false;
 		
-		dateRequestLocalDate = dateRequestLocalDate.plusDays(1);
+		dateRequest = dateRequest.plusDays(1);
 		
-		return (!dateRequestLocalDate.isEqual(dateReservationLocalDate));
+		return (!dateRequest.isEqual(dateReservation));
 	}
 	
 	public boolean isEven() {
-		return ((idTable%2) == 0);
+		int intIdTable = Integer.parseInt(idTable.toString());
+		return ((intIdTable%2) == 0);
 	}
 	
 	public void giveDiscount() {
-		price = (price*0.8);
+		price = (price*80/100);
 	}
 
 	public boolean validatePrimeNumber() {
@@ -100,18 +90,7 @@ public class Reservation {
 	public void setIdTable(Long idTable) {
 		this.idTable = idTable;
 	}
-	public Date getDateRequest() {
-		return dateRequest;
-	}
-	public void setDateRequest(Date dateRequest) {
-		this.dateRequest = dateRequest;
-	}
-	public Date getDateReservation() {
-		return dateReservation;
-	}
-	public void setDateReservation(Date dateReservation) {
-		this.dateReservation = dateReservation;
-	}
+	
 	public double getPrice() {
 		return price;
 	}

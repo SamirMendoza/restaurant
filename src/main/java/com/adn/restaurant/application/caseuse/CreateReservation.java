@@ -1,5 +1,7 @@
 package com.adn.restaurant.application.caseuse;
 
+import java.time.LocalDate;
+
 import org.springframework.stereotype.Service;
 
 import com.adn.restaurant.application.command.ReservationCommand;
@@ -18,8 +20,9 @@ public class CreateReservation {
 		this.tableRepository = tableRepository;
 	}
 	
-	public Reservation create(ReservationCommand reservationCommand) {
-		Reservation reservation = new Reservation(reservationCommand.getIdTable(), reservationCommand.getDateRequest(), reservationCommand.getDateReservation(), reservationCommand.getPrice(), reservationCommand.getName());
+	public Reservation create(ReservationCommand reservationCommand, LocalDate dateReservation) {
+		Reservation reservation = new Reservation(reservationCommand.getIdTable(), reservationCommand.getPrice(), reservationCommand.getName());
+		reservation.generateReservation(LocalDate.now(), dateReservation);
 		reservationRepository.save(reservation);
 		tableRepository.save(tableRepository.findById(reservation.getIdTable()));
 		
