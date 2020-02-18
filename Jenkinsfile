@@ -63,11 +63,6 @@ pipeline {
   }
 
   post {
-  	failure {
-		echo 'This will run only if failed'
-		mail (to: 'yuliana.canas@ceiba.com.co',subject: "Failed Pipeline:${currentBuild.fullDisplayName}",body: "Something is wrong with ${env.BUILD_URL}")
-	}
-  
     always {
       echo 'This will always run'
     }
@@ -75,8 +70,9 @@ pipeline {
       echo 'This will run only if successful'
     }
     failure {
-      echo 'This will run only if failed'
-    }
+		echo 'This will run only if failed'
+		mail (to: 'yuliana.canas@ceiba.com.co',subject: "Failed Pipeline:${currentBuild.fullDisplayName}",body: "Something is wrong with ${env.BUILD_URL}")
+	}
     unstable {
       echo 'This will run only if the run was marked as unstable'
     }
