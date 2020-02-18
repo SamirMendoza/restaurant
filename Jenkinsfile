@@ -21,13 +21,27 @@ pipeline {
     stage('Checkout') {
       steps{
         echo "------------>Checkout<------------"
+        checkout([
+			$class: 'GitSCM', 
+			branches: [[name: '*/master']], 
+			doGenerateSubmoduleConfigurations: false, 
+			extensions: [], 
+			gitTool: 'Default', 
+			submoduleCfg: [], 
+			userRemoteConfigs: [[
+				credentialsId: 'GitHub_SamirMendoza', 
+				url:'https://github.com/SamirMendoza/restaurant'
+			]]
+		])
+        
       }
     }
     
     stage('Compile & Unit Tests') {
       steps{
         echo "------------>Unit Tests<------------"
-
+        sh 'gradle --b ./proyecto1/build.gradle clean'
+        sh 'gradle --b ./build.gradle test'
       }
     }
 
