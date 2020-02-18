@@ -3,6 +3,8 @@ package com.adn.restaurant.domain.model;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 
+import com.adn.restaurant.domain.exception.ReservationException;
+
 public class Reservation {
 	
 	private Long code;
@@ -18,7 +20,7 @@ public class Reservation {
 	
 	public void generateReservation(LocalDate dateRequest, LocalDate dateReservation) {
 		if (!validatePrimeIdTable(dateRequest, dateReservation)) {
-			//lanzar excepcion
+			throw new ReservationException("no puede reservar con menos de tres dias de antelacion");
 		}
 		
 		if (!validateEvenIdTable(dateReservation)) {
@@ -26,8 +28,7 @@ public class Reservation {
 		}
 		
 		if (!validateUnevenIdTable(dateReservation)) {
-			//lanzar excepcion
-		}
+			throw new ReservationException("no puede reservar los fines de semana");		}
 	}
 	
 	public boolean validatePrimeIdTable(LocalDate dateRequest, LocalDate dateReservation) {
