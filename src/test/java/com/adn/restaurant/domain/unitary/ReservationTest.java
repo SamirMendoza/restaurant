@@ -8,11 +8,10 @@ import com.adn.restaurant.domain.model.Reservation;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 public class ReservationTest {
 
-//	    @Test
+	    @Test
 	    public void isNumberPrime() {
 
 	    	Reservation reservation = new ReservationTestDataBuilder().withIdTable(7L).build();
@@ -22,7 +21,7 @@ public class ReservationTest {
 	    	assertTrue(primeNumber);
 	    }
 	    
-//	    @Test
+	    @Test
 	    public void notIsNumberPrime() {
 	    	
 	    	Reservation reservation = new ReservationTestDataBuilder().withIdTable(8L).build();
@@ -32,7 +31,7 @@ public class ReservationTest {
 	    	assertFalse(notPrimeNumber);
 	    }
 	    
-//	    @Test
+	    @Test
 	    public void giveDiscount() {
 	    	
 	    	Reservation reservation = new ReservationTestDataBuilder().withPrice(1000).build();
@@ -43,7 +42,7 @@ public class ReservationTest {
 	    	assertEquals(800, priceWithDiscount);
 	    }
 	    
-//	    @Test
+	    @Test
 	    public void isNumberEven() {
 
 	    	Reservation reservation = new ReservationTestDataBuilder().withIdTable(8L).build();
@@ -53,7 +52,7 @@ public class ReservationTest {
 	    	assertTrue(evenNumber);
 	    }
 	    
-//	    @Test
+	    @Test
 	    public void isNumberUneven() {
 	    	
 	    	Reservation reservation = new ReservationTestDataBuilder().withIdTable(7L).build();
@@ -63,7 +62,7 @@ public class ReservationTest {
 	    	assertFalse(unevenNumber);
 	    }
 	    
-//	    @Test
+	    @Test
 	    public void betweenThreeOrMoreDays() {
 	    	
 	    	Reservation reservation = new ReservationTestDataBuilder().build();
@@ -76,7 +75,7 @@ public class ReservationTest {
 	    	assertTrue(threeOrMoreDays);
 	    }
 	    
-//	    @Test
+	    @Test
 	    public void betweenTwoOrLessDays() {
 	    	
 	    	Reservation reservation = new ReservationTestDataBuilder().build();
@@ -88,7 +87,7 @@ public class ReservationTest {
 	    	assertFalse(twoOrLessDays);
 	    }
 	    
-//	    @Test
+	    @Test
 	    public void notIsWeekEnd() {
 	    	
 	    	Reservation reservation = new ReservationTestDataBuilder().build();
@@ -100,7 +99,7 @@ public class ReservationTest {
 	    	assertTrue(midWeek);
 	    }
 	    
-//	    @Test
+	    @Test
 	    public void isWeekEnd() {
 	    	
 	    	Reservation reservation = new ReservationTestDataBuilder().build();
