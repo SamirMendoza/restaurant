@@ -2,6 +2,7 @@ plugins {
 	id 'org.springframework.boot' version '2.2.4.RELEASE'
 	id 'io.spring.dependency-management' version '1.0.9.RELEASE'
 	id 'java'
+	id 'jacoco'
 }
 
 group = 'com.adn'
@@ -36,6 +37,11 @@ dependencies {
     annotationProcessor "org.mapstruct:mapstruct-processor:${mapstructVersion}"
 }
 
+jacoco {
+    toolVersion = "0.8.5"
+    reportsDir = file("$buildDir/customJacocoReportDir")
+}
+
 compileJava {
     options.annotationProcessorPath = configurations.annotationProcessor
 
@@ -46,3 +52,4 @@ compileJava {
 test {
 	useJUnitPlatform()
 }
+
