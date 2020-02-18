@@ -16,6 +16,10 @@ public class TableRestController {
 	
 	private FindTable findTable;
 	
+	public TableRestController(FindTable findTable) {
+		this.findTable = findTable;
+	}
+
 	@GetMapping
 	public List<Table> read() {
 		return findTable.findAll();

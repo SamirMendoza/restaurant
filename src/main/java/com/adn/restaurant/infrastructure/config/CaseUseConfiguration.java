@@ -2,23 +2,34 @@ package com.adn.restaurant.infrastructure.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 
-import com.adn.restaurant.application.caseuse.CreateReservation;
-import com.adn.restaurant.application.caseuse.FindReservation;
+import com.adn.restaurant.application.caseuse.FindTable;
+import com.adn.restaurant.domain.ports.ReservationRepository;
+import com.adn.restaurant.domain.ports.TableRepository;
 import com.adn.restaurant.infrastructure.adapter.repository.MysqlReservationRepository;
 import com.adn.restaurant.infrastructure.adapter.repository.MysqlTableRepository;
+import com.adn.restaurant.infrastructure.adapter.repository.database.jparepository.JpaReservationRepository;
+import com.adn.restaurant.infrastructure.adapter.repository.database.jparepository.JpaTableRepository;
 
 
 @Configuration
 public class CaseUseConfiguration {
 	
+	@Primary
 	@Bean
-	public CreateReservation createReservation(MysqlReservationRepository mysqlReservationRepository, MysqlTableRepository mysqlTableRepository) {
-		return new CreateReservation(mysqlReservationRepository, mysqlTableRepository);
+	public ReservationRepository reservationRepository(JpaReservationRepository jpaReservationRepository) {
+		return new MysqlReservationRepository(jpaReservationRepository);
+	}
+	
+	@Primary
+	@Bean
+	public TableRepository tableRepository(JpaTableRepository jpaTableRepository) {
+		return new MysqlTableRepository(jpaTableRepository);
 	}
 	
 	@Bean
-	public FindReservation findReservation(MysqlReservationRepository mysqlReservationRepository) {
-		return new FindReservation(mysqlReservationRepository);
+	public FindTable findTable(TableRepository tableRepository) {
+		return new FindTable(tableRepository);
 	}
 }
