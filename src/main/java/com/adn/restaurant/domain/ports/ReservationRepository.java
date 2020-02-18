@@ -25,4 +25,10 @@ public interface ReservationRepository {
 	 * @return List<Reservation>
 	 */
 	Reservation findById(Long id);
+	
+	/**
+	 * Permite eliminar una reserva del repositorio
+	 * @param id
+	 */
+	void delete(Long id);
 }

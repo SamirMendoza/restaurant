@@ -37,6 +37,11 @@ public class MysqlReservationRepository implements ReservationRepository {
 		return JpaReservationMapper.MAPPER.toReservation(jpaReservationRepository.findById(id).orElse(null));
 	}
 
+	@Override
+	public void delete(Long id) {
+		jpaReservationRepository.deleteById(id);
+	}
+
 	
 	
 }

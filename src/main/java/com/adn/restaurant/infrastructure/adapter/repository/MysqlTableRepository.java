@@ -1,5 +1,7 @@
 package com.adn.restaurant.infrastructure.adapter.repository;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
@@ -28,5 +30,10 @@ public class MysqlTableRepository implements TableRepository {
 	@Override
 	public Table findById(Long idTable) {
 		return JpaTableMapper.MAPPER.toTable(jpaTableRepository.findById(idTable).orElse(null));
+	}
+
+	@Override
+	public List<Table> findAll() {
+		return JpaTableMapper.MAPPER.toTables(jpaTableRepository.findAll());
 	}
 }

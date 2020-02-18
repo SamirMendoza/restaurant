@@ -19,7 +19,7 @@ import com.adn.restaurant.application.command.ReservationCommand;
 import com.adn.restaurant.domain.model.Reservation;
 
 @Controller
-@RequestMapping(path = "/restaurante")
+@RequestMapping(path = "/restaurant")
 public class ReservationRestController {
 	
 	private CreateReservation createReservation;
