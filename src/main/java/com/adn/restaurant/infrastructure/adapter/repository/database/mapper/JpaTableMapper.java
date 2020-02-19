@@ -1,7 +1,5 @@
 package com.adn.restaurant.infrastructure.adapter.repository.database.mapper;
 
-import java.util.ArrayList;
-import java.util.List;
 
 import com.adn.restaurant.domain.model.Table;
 import com.adn.restaurant.infrastructure.adapter.repository.database.jpaentity.JpaTable;
@@ -16,16 +14,6 @@ public interface JpaTableMapper {
 		table.setAvailability(jpaTable.isAvailability());
 		
 		return table;
-	}
-
-	public static List<Table> toTables(List<JpaTable> jpaTables){
-		List<Table> tables = new ArrayList<>();
-    	 
-    	 for (JpaTable jpaTable : jpaTables) {
-    		 tables.add(toTable(jpaTable));
-		}
-    	 
-    	 return tables;
 	}
 
 	public static JpaTable toJpaTable(Table table) {

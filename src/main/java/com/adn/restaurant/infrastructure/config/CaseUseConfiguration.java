@@ -29,10 +29,10 @@ public class CaseUseConfiguration {
 		return new MysqlTableRepository(jpaTableRepository);
 	}
 	
-	@Bean
-	public FindTable findTable(TableRepository tableRepository) {
-		return new FindTable(tableRepository);
-	}
+//	@Bean
+//	public FindTable findTable(TableRepository tableRepository) {
+//		return new FindTable(tableRepository);
+//	}
 	
 	@Bean
 	public DeleteReservation deleteReservation(ReservationRepository reservationRepository, TableRepository tableRepository) {

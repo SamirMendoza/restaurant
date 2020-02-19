@@ -1,9 +1,11 @@
  package com.adn.restaurant.infrastructure.adapter.repository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.transaction.Transactional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.adn.restaurant.domain.model.Table;
@@ -20,7 +22,8 @@ public class MysqlTableRepository implements TableRepository {
 	
 	public MysqlTableRepository() {
 	}
-
+	
+	@Autowired
 	public MysqlTableRepository(JpaTableRepository jpaTableRepository) {
 		this.jpaTableRepository = jpaTableRepository;
 	}
@@ -38,6 +41,10 @@ public class MysqlTableRepository implements TableRepository {
 
 	@Override
 	public List<Table> findAll() {
-		return JpaTableMapper.toTables(jpaTableRepository.findAll());
+		
+		List<Table> tables = new ArrayList<>();
+		List<JpaTable> jpaTables = jpaTableRepository.findAll();
+		jpaTables.forEach(value -> tables.add(JpaTableMapper.toTable(value)));
+		return tables;
 	}
 }

@@ -11,7 +11,7 @@ import com.adn.restaurant.domain.model.Table;
 
 
 @Controller
-@RequestMapping(path = "/restaurant/tables")
+@RequestMapping(path = "/tables")
 public class TableRestController {
 	
 	private FindTable findTable;
