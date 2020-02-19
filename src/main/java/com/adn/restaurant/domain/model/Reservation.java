@@ -19,15 +19,15 @@ public class Reservation {
 		}
 	
 	public void generateReservation(LocalDate dateRequest, LocalDate dateReservation) {
-		if (!validatePrimeIdTable(dateRequest, dateReservation)) {
+		if (validatePrimeIdTable(dateRequest, dateReservation)) {
 			throw new ReservationException("no puede reservar con menos de tres dias de antelacion");
 		}
 		
-		if (!validateEvenIdTable(dateReservation)) {
+		if (validateEvenIdTable(dateReservation)) {
 			giveDiscount();
 		}
 		
-		if (!validateUnevenIdTable(dateReservation)) {
+		if (validateUnevenIdTable(dateReservation)) {
 			throw new ReservationException("no puede reservar los fines de semana");		}
 	}
 	

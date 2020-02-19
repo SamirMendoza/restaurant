@@ -21,6 +21,22 @@ public class JpaTable extends Table{
 	@NotNull
 	private boolean availability;
 	
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public boolean isAvailability() {
+		return availability;
+	}
+
+	public void setAvailability(boolean availability) {
+		this.availability = availability;
+	}
+	
 	public JpaTable() {
 	}
 	

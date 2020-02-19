@@ -10,7 +10,7 @@ public interface ReservationRepository {
 	 * Permite agregar una reserva al repositorio
 	 * @param reserva
 	 */
-	void save(Reservation reserva);
+	void save(Reservation reservation);
 	
 	/**
 	 * Permite mostrar todas las reservas del repositorio

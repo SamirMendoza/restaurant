@@ -37,7 +37,7 @@ public class DeleteReservationTest {
 		Reservation reservation = new ReservationTestDataBuilder().withCode(id).withName("jose").build();
 		when(this.reservationRepository.delete(id)).thenReturn(null);
 		//act
-		reservation = reservationRepository.delete(id);
+		reservation = deleteReservation.delete(id);
 		//assert
 		Assertions.assertNull(reservation);
 		

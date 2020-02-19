@@ -24,6 +24,32 @@ public class JpaReservation extends Reservation{
 	@NotNull
 	private String name;
 	
+	public Long getCode() {
+		return code;
+	}
+	public void setCode(Long code) {
+		this.code = code;
+	}
+	public Long getIdTable() {
+		return idTable;
+	}
+	public void setIdTable(Long idTable) {
+		this.idTable = idTable;
+	}
+	
+	public double getPrice() {
+		return price;
+	}
+	public void setPrice(double price) {
+		this.price = price;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+
 	public JpaReservation() {
 	}
 	
