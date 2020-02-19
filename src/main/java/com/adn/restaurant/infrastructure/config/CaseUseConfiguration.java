@@ -4,6 +4,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 
+import com.adn.restaurant.application.caseuse.DeleteReservation;
 import com.adn.restaurant.application.caseuse.FindTable;
 import com.adn.restaurant.domain.ports.ReservationRepository;
 import com.adn.restaurant.domain.ports.TableRepository;
@@ -31,5 +32,10 @@ public class CaseUseConfiguration {
 	@Bean
 	public FindTable findTable(TableRepository tableRepository) {
 		return new FindTable(tableRepository);
+	}
+	
+	@Bean
+	public DeleteReservation deleteReservation(ReservationRepository reservationRepository, TableRepository tableRepository) {
+		return new DeleteReservation(reservationRepository, tableRepository);
 	}
 }

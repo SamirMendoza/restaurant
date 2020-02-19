@@ -1,20 +1,40 @@
 package com.adn.restaurant.infrastructure.adapter.repository.database.mapper;
 
+import java.util.ArrayList;
 import java.util.List;
-
-import org.mapstruct.Mapper;
 
 import com.adn.restaurant.domain.model.Table;
 import com.adn.restaurant.infrastructure.adapter.repository.database.jpaentity.JpaTable;
 
 
-@Mapper(componentModel = "spring")
 public interface JpaTableMapper {
 
-    Table toTable(JpaTable jpaTable);
+	public static Table toTable(JpaTable jpaTable) {
+		Table table = new Table();
+		
+		table.setId(jpaTable.getId());
+		table.setAvailability(jpaTable.isAvailability());
+		
+		return table;
+	}
 
-    List<Table> toTables(List<JpaTable> jpaTables);
+	public static List<Table> toTables(List<JpaTable> jpaTables){
+		List<Table> tables = new ArrayList<>();
+    	 
+    	 for (JpaTable jpaTable : jpaTables) {
+    		 tables.add(toTable(jpaTable));
+		}
+    	 
+    	 return tables;
+	}
 
-    JpaTable toJpaTable(Table table);
+	public static JpaTable toJpaTable(Table table) {
+		JpaTable jpaTable = new JpaTable();
+		
+		jpaTable.setId(table.getId());
+		jpaTable.setAvailability(table.isAvailability());
+		
+		return jpaTable;
+	}
 
 }

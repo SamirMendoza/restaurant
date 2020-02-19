@@ -6,10 +6,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
-import com.adn.restaurant.domain.model.Reservation;
-
 @Entity (name = "reservations")
-public class JpaReservation extends Reservation{
+public class JpaReservation{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
