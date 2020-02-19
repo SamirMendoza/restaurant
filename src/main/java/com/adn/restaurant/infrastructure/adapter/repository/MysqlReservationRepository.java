@@ -17,24 +17,33 @@ import com.adn.restaurant.infrastructure.adapter.repository.database.mapper.JpaR
 public class MysqlReservationRepository implements ReservationRepository {
 	
 	JpaReservationRepository jpaReservationRepository;
+	JpaReservationMapper jpaReservationMapper;
+	
+	public MysqlReservationRepository() {
+	}
 	
 	public MysqlReservationRepository(JpaReservationRepository jpaReservationRepository) {
 		this.jpaReservationRepository = jpaReservationRepository;
 	}
 
+	public MysqlReservationRepository(JpaReservationRepository jpaReservationRepository, JpaReservationMapper jpaReservationMapper) {
+		this.jpaReservationRepository = jpaReservationRepository;
+		this.jpaReservationMapper = jpaReservationMapper;
+	}
+
 	@Override
 	public void save(Reservation reservation) {
-		jpaReservationRepository.save(JpaReservationMapper.MAPPER.toJpaReservation(reservation));
+		jpaReservationRepository.save(jpaReservationMapper.toJpaReservation(reservation));
 	}
 
 	@Override
 	public List<Reservation> findAll() {
-		return JpaReservationMapper.MAPPER.toReservations(jpaReservationRepository.findAll());
+		return jpaReservationMapper.toReservations(jpaReservationRepository.findAll());
 	}
 
 	@Override
 	public Reservation findById(Long id) {
-		return JpaReservationMapper.MAPPER.toReservation(jpaReservationRepository.findById(id).orElse(null));
+		return jpaReservationMapper.toReservation(jpaReservationRepository.findById(id).orElse(null));
 	}
 
 	@Override
