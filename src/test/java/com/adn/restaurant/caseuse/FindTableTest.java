@@ -5,7 +5,7 @@ import static org.mockito.Mockito.when;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
@@ -40,9 +40,9 @@ public class FindTableTest {
 		
 		//assert
 
-		Assert.assertEquals(tables.size(), tablesResponse.size());
-		Assert.assertEquals(3L, tables.get(0).getId().longValue());
-		Assert.assertEquals(6L, tables.get(1).getId().longValue());
+		Assertions.assertEquals(tables.size(), tablesResponse.size());
+		Assertions.assertEquals(3L, tables.get(0).getId().longValue());
+		Assertions.assertEquals(6L, tables.get(1).getId().longValue());
 		
 	}
 	
