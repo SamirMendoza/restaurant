@@ -1,4 +1,4 @@
-package com.adn.restaurant.domain.databuilder;
+package com.adn.restaurant.databuilder;
 
 import com.adn.restaurant.domain.model.Reservation;
 

@@ -1,8 +1,8 @@
-package com.adn.restaurant.domain.unitary;
+package com.adn.restaurant.domain;
 
 import org.junit.jupiter.api.Test;
 
-import com.adn.restaurant.domain.databuilder.ReservationTestDataBuilder;
+import com.adn.restaurant.databuilder.ReservationTestDataBuilder;
 import com.adn.restaurant.domain.model.Reservation;
 
 import static org.junit.jupiter.api.Assertions.*;
