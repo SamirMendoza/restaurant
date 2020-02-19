@@ -41,8 +41,8 @@ public class FindTableTest {
 		//assert
 
 		Assertions.assertEquals(tables.size(), tablesResponse.size());
-		Assertions.assertEquals(3L, tables.get(0).getId().longValue());
-		Assertions.assertEquals(6L, tables.get(1).getId().longValue());
+		Assertions.assertEquals(3L, tablesResponse.get(0).getId().longValue());
+		Assertions.assertEquals(6L, tablesResponse.get(1).getId().longValue());
 		
 	}
 	
