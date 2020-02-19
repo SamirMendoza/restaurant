@@ -20,7 +20,7 @@ public class FindReservation {
 		return reservationRepository.findAll();
 	}
 
-	public Reservation findById(long id) {
+	public Reservation findById(Long id) {
 		return reservationRepository.findById(id);
 	}
 	

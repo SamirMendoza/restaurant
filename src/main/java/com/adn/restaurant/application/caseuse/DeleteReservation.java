@@ -1,5 +1,6 @@
 package com.adn.restaurant.application.caseuse;
 
+import com.adn.restaurant.domain.model.Reservation;
 import com.adn.restaurant.domain.ports.ReservationRepository;
 import com.adn.restaurant.domain.ports.TableRepository;
 
@@ -13,8 +14,8 @@ public class DeleteReservation {
 		this.tableRepository = tableRepository;
 	}
 	
-	public void delete(Long id) {
-		reservationRepository.delete(id);
+	public Reservation delete(Long id) {
 		tableRepository.save(tableRepository.findById(id));
+		return reservationRepository.delete(id);
 	}
 }

@@ -38,8 +38,9 @@ public class MysqlReservationRepository implements ReservationRepository {
 	}
 
 	@Override
-	public void delete(Long id) {
+	public Reservation delete(Long id) {
 		jpaReservationRepository.deleteById(id);
+		return findById(id);
 	}
 
 	
