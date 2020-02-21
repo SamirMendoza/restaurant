@@ -1,8 +1,5 @@
 package com.adn.restaurant.infrastructure.adapter.repository.database.mapper;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.adn.restaurant.domain.model.Reservation;
 import com.adn.restaurant.infrastructure.adapter.repository.database.jpaentity.JpaReservation;
 
@@ -21,18 +18,6 @@ public class JpaReservationMapper {
     	return reservation;
     	
     }
-
-    public static List<Reservation> toReservations(List<JpaReservation> jpaReservations){
-    	 List<Reservation> reservations = new ArrayList<>();
-    	 
-    	 for (JpaReservation jpaReservation : jpaReservations) {
-    		 reservations.add(toReservation(jpaReservation));
-		}
-    	 
-    	 return reservations;
-    }
-    
-    
     
     public static JpaReservation toJpaReservation(Reservation reservation) {
     	JpaReservation jpaReservation = new JpaReservation();

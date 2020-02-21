@@ -3,10 +3,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.transaction.Transactional;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Component;
 
 import com.adn.restaurant.domain.model.Table;
 import com.adn.restaurant.domain.ports.TableRepository;
@@ -14,16 +11,11 @@ import com.adn.restaurant.infrastructure.adapter.repository.database.jpaentity.J
 import com.adn.restaurant.infrastructure.adapter.repository.database.jparepository.JpaTableRepository;
 import com.adn.restaurant.infrastructure.adapter.repository.database.mapper.JpaTableMapper;
 
-@Repository
-@Transactional
+@Component
 public class MysqlTableRepository implements TableRepository {
 	
-	JpaTableRepository jpaTableRepository;
+	private JpaTableRepository jpaTableRepository;
 	
-	public MysqlTableRepository() {
-	}
-	
-	@Autowired
 	public MysqlTableRepository(JpaTableRepository jpaTableRepository) {
 		this.jpaTableRepository = jpaTableRepository;
 	}

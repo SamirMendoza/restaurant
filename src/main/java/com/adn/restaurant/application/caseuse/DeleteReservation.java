@@ -1,5 +1,7 @@
 package com.adn.restaurant.application.caseuse;
 
+import org.springframework.stereotype.Service;
+
 import com.adn.restaurant.domain.model.Reservation;
 import com.adn.restaurant.domain.ports.ReservationRepository;
 import com.adn.restaurant.domain.ports.TableRepository;
@@ -14,8 +16,9 @@ public class DeleteReservation {
 		this.tableRepository = tableRepository;
 	}
 	
-	public Reservation delete(Long id) {
-		tableRepository.save(tableRepository.findById(id));
-		return reservationRepository.delete(id);
-	}
+//	public Reservation delete(Long id) {
+//		tableRepository.save(tableRepository.findById(id));
+//		reservationRepository.delete(id);
+//		return reservationRepository;
+//	}
 }

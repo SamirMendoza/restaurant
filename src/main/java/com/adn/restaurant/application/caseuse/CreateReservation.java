@@ -9,7 +9,6 @@ import com.adn.restaurant.domain.model.Reservation;
 import com.adn.restaurant.domain.ports.ReservationRepository;
 import com.adn.restaurant.domain.ports.TableRepository;
 
-@Service
 public class CreateReservation {
 	
 	private ReservationRepository reservationRepository;

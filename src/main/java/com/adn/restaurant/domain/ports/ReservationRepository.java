@@ -30,5 +30,5 @@ public interface ReservationRepository {
 	 * Permite eliminar una reserva del repositorio
 	 * @param id
 	 */
-	Reservation delete(Long id);
+	void delete(Long id);
 }
