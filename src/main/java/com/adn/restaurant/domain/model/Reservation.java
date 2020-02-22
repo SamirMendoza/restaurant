@@ -18,7 +18,7 @@ public class Reservation {
 		this.name = name;
 		}
 	
-	public void generateReservation(LocalDate dateRequest, LocalDate dateReservation) {
+	public void generateReservation(LocalDate dateRequest, LocalDate dateReservation) throws ReservationException{
 		if (validatePrimeIdTable(dateRequest, dateReservation)) {
 			throw new ReservationException("no puede reservar con menos de tres dias de antelacion");
 		}
