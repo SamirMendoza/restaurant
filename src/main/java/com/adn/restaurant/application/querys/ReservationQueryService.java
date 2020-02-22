@@ -22,10 +22,6 @@ public class ReservationQueryService {
 		return reservationRepository.findAll();
 	}
 
-	public Reservation findById(Long id) {
-		return reservationRepository.findById(id);
-	}
-
 	public ReservationQueryService() {
 	}
 	

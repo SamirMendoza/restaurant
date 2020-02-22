@@ -2,7 +2,7 @@ package com.adn.restaurant.application.commands.dto;
 
 import java.time.LocalDate;
 
-public class ReservationSaveCommandDto {
+public class ReservationSaveCommand {
 	
 	private Long idTable;
 	private double price;

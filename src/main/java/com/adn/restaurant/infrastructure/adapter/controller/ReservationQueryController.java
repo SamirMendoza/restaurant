@@ -3,7 +3,6 @@ package com.adn.restaurant.infrastructure.adapter.controller;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -25,10 +24,4 @@ public class ReservationQueryController {
 	public List<Reservation> read() {
 		return reservationQueryService.findAll();
 	}
-	
-	@GetMapping("{id}")
-	public Reservation read(@PathVariable Long id) {
-		return reservationQueryService.findById(id);
-	}
-	
 }

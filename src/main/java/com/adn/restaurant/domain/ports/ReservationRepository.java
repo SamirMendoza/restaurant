@@ -20,13 +20,6 @@ public interface ReservationRepository {
 	List<Reservation> findAll();
 	
 	/**
-	 * Permite mostrar una reserva del repositorio
-	 * @param id
-	 * @return List<Reservation>
-	 */
-	Reservation findById(Long id);
-	
-	/**
 	 * Permite eliminar una reserva del repositorio
 	 * @param id
 	 */

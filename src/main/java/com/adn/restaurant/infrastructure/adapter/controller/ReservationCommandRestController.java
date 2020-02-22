@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.adn.restaurant.application.commands.ReservationCommandService;
-import com.adn.restaurant.application.commands.dto.ReservationDeleteCommandDto;
-import com.adn.restaurant.application.commands.dto.ReservationSaveCommandDto;
+import com.adn.restaurant.application.commands.dto.ReservationDeleteCommand;
+import com.adn.restaurant.application.commands.dto.ReservationSaveCommand;
 
 @RestController("reservationCommandRestController")
 @RequestMapping("restaurant/reservations")
@@ -23,14 +23,14 @@ public class ReservationCommandRestController {
 	
 	@PostMapping("/create")
 	@ResponseStatus(HttpStatus.OK)
-	public void create(@RequestBody ReservationSaveCommandDto reservationSaveCommandDto) {
-		reservationCommandService.create(reservationSaveCommandDto);
+	public void create(@RequestBody ReservationSaveCommand reservationSaveCommand) {
+		reservationCommandService.create(reservationSaveCommand);
 	}
 	
 	@PostMapping("/delete")
 	@ResponseStatus(HttpStatus.OK)
-	public void delete(@RequestBody ReservationDeleteCommandDto reservationDeleteCommandDto) {
-		reservationCommandService.delete(reservationDeleteCommandDto);
+	public void delete(@RequestBody ReservationDeleteCommand reservationDeleteCommand) {
+		reservationCommandService.delete(reservationDeleteCommand);
 	}
 	
 }

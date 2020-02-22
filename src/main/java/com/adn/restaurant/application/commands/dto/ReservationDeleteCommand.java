@@ -1,13 +1,13 @@
 package com.adn.restaurant.application.commands.dto;
 
-public class ReservationDeleteCommandDto {
+public class ReservationDeleteCommand {
 	
 	private long id;
 
-	public ReservationDeleteCommandDto() {
+	public ReservationDeleteCommand() {
 	}
 
-	public ReservationDeleteCommandDto(long id) {
+	public ReservationDeleteCommand(long id) {
 		this.id = id;
 	}
 
