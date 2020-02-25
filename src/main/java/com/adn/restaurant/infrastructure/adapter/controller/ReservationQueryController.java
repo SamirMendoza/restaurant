@@ -2,6 +2,7 @@ package com.adn.restaurant.infrastructure.adapter.controller;
 
 import java.util.List;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -9,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.adn.restaurant.application.querys.ReservationQueryService;
 import com.adn.restaurant.domain.model.Reservation;
 
-
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController("reservationQueryRestController")
 @RequestMapping("restaurant/reservations")
 public class ReservationQueryController {
