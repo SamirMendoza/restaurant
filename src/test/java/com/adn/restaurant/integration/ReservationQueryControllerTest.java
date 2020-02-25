@@ -28,11 +28,8 @@ import org.springframework.web.context.WebApplicationContext;
 
 import com.adn.restaurant.RestaurantApplication;
 import com.adn.restaurant.databuilder.ReservationTestDataBuilder;
-import com.adn.restaurant.databuilder.TableTestDataBuilder;
 import com.adn.restaurant.domain.model.Reservation;
-import com.adn.restaurant.domain.model.Table;
 import com.adn.restaurant.domain.ports.ReservationRepository;
-import com.adn.restaurant.domain.ports.TableRepository;
 
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(classes = RestaurantApplication.class)
@@ -58,7 +55,7 @@ public class ReservationQueryControllerTest {
 	@Transactional
 	@Rollback(true)
 	@Test
-	public void testGetTables() throws Exception {
+	public void testGetReservations() throws Exception {
 		
 		reservation = new ReservationTestDataBuilder().withIdTable(8L).build();
 		reservationRepository.save(reservation);
