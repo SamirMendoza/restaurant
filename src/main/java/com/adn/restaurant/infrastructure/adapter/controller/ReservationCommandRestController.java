@@ -15,7 +15,6 @@ import com.adn.restaurant.application.commands.dto.ReservationDeleteCommand;
 import com.adn.restaurant.application.commands.dto.ReservationSaveCommand;
 
 
-//@CrossOrigin(origins = "*", allowedHeaders = "*")
 @CrossOrigin
 @RestController("reservationCommandRestController")
 @RequestMapping("restaurant/reservations")

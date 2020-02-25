@@ -1,13 +1,13 @@
-INSERT INTO reservations (code, id_table, name, price) VALUES (1,3,'samir',1000)
-INSERT INTO reservations (code, id_table, name, price) VALUES (2,2,'samir',1000)
-INSERT INTO reservations (code, id_table, name, price) VALUES (3,5,'samir',1000)
+INSERT INTO reservations (code, id_table, name, price) VALUES (1,1,'samir',1000)
+INSERT INTO reservations (code, id_table, name, price) VALUES (2,2,'juan',800)
+INSERT INTO reservations (code, id_table, name, price) VALUES (3,3,'sergio',1000)
 
 
-INSERT INTO tables(id, availability) VALUES (1,1)
+INSERT INTO tables(id, availability) VALUES (1,0)
 INSERT INTO tables(id, availability) VALUES (2,0)
 INSERT INTO tables(id, availability) VALUES (3,0)
 INSERT INTO tables(id, availability) VALUES (4,1)
-INSERT INTO tables(id, availability) VALUES (5,0)
+INSERT INTO tables(id, availability) VALUES (5,1)
 INSERT INTO tables(id, availability) VALUES (6,1)
 INSERT INTO tables(id, availability) VALUES (7,1)
 INSERT INTO tables(id, availability) VALUES (8,1)

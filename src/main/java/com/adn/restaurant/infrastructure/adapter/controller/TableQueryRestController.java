@@ -2,9 +2,11 @@ package com.adn.restaurant.infrastructure.adapter.controller;
 
 import java.util.List;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.adn.restaurant.application.querys.TableQueryService;
@@ -22,6 +24,7 @@ public class TableQueryRestController {
 	}
 
 	@GetMapping
+	@ResponseStatus(HttpStatus.OK)
 	public List<Table> read() {
 		return tableQueryService.findAll();
 	}
